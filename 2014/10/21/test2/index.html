@@ -3,20 +3,29 @@
 <head>
   <meta charset="utf-8">
   
-  <title>test2 | Hexo</title>
+  <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="wellcom
-liangyuan">
+  <meta name="description" content="title: test2date: 2014-10-21 12:47:39tags:-
+通配符
+“通配符是系统级别的 ⽽而正则表达式需要相关⼯工具和语⾔言的⽀支持: egrep, awk, vi, perl。
+当您键入 ls .txt 命令并按 Enter 后,寻找哪些文件同 .txt 模式相匹配的任务不是由 ls 命令,而 是由 shell
+ 自己完成。这需要对命令行是如何被 shell 解析的">
 <meta property="og:type" content="article">
-<meta property="og:title" content="test2">
+<meta property="og:title" content="Hexo">
 <meta property="og:url" content="http://yoursite.com/2014/10/21/test2/">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="wellcom
-liangyuan">
+<meta property="og:description" content="title: test2date: 2014-10-21 12:47:39tags:-
+通配符
+“通配符是系统级别的 ⽽而正则表达式需要相关⼯工具和语⾔言的⽀支持: egrep, awk, vi, perl。
+当您键入 ls .txt 命令并按 Enter 后,寻找哪些文件同 .txt 模式相匹配的任务不是由 ls 命令,而 是由 shell
+ 自己完成。这需要对命令行是如何被 shell 解析的">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="test2">
-<meta name="twitter:description" content="wellcom
-liangyuan">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="title: test2date: 2014-10-21 12:47:39tags:-
+通配符
+“通配符是系统级别的 ⽽而正则表达式需要相关⼯工具和语⾔言的⽀支持: egrep, awk, vi, perl。
+当您键入 ls .txt 命令并按 Enter 后,寻找哪些文件同 .txt 模式相匹配的任务不是由 ls 命令,而 是由 shell
+ 自己完成。这需要对命令行是如何被 shell 解析的">
 
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -67,27 +76,54 @@ liangyuan">
         <section id="main"><article id="post-test2" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2014/10/21/test2/" class="article-date">
-  <time datetime="2014-10-21T19:47:39.000Z" itemprop="datePublished">Oct 21 2014</time>
+  <time datetime="2014-10-21T20:26:09.000Z" itemprop="datePublished">Oct 21 2014</time>
 </a>
     
   </div>
   <div class="article-inner">
     
     
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      test2
-    </h1>
-  
-
-      </header>
-    
     <div class="article-entry" itemprop="articleBody">
       
-        <p>wellcom</p>
-<p>liangyuan</p>
+        <p>title: test2<br>date: 2014-10-21 12:47:39<br>tags:<br>-</p>
+<h1 id="通配符">通配符</h1>
+<p>“通配符是系统级别的 ⽽而正则表达式需要相关⼯工具和语⾔言的⽀支持: egrep, awk, vi, perl。</p>
+<p>当您键入 ls .txt 命令并按 Enter 后,寻找哪些文件同 .txt 模式相匹配的任务不是由 ls 命令,而 是由 shell</p>
+<p> 自己完成。这需要对命令行是如何被 shell 解析的作进一步解释。当您键入:</p>
+<h1 id="通配符语法:*">通配符语法:*</h1>
+<h3 id="*_将与零个或多个字符匹配。这就是说“什么都可以”。例子:">* 将与零个或多个字符匹配。这就是说“什么都可以”。例子:</h3>
+<p>/etc/g* 与 /etc 中以 g 开头的所有⽂文件匹配。</p>
+<p>/tmp/my*.txt 与 /tmp 中以 my 开头,并且以 .txt 结尾的所有⽂文件匹配。</p>
+<p>￼￼<br>$ ls *.txt<br>      readme.txt  recipes.txt</p>
+<p>￼￼<br>该命令首先被分割成一系列单词(本例中的 ls 和 .txt)。当 shell 在某个单词中发现了 ,它会将 整个单词当作通配模式解析,并用所有相匹配的文件替换它。因此,该命令在执行前就变为 ls readme.txt recipe.txt,而这将得到期望的结果。其余通配符有:</p>
+<h1 id="通配符语法:?">通配符语法:?</h1>
+<h2 id="?_与任何单个字符匹配。例子:">? 与任何单个字符匹配。例子:</h2>
+<p>myfile? 与文件名为mafile 后跟单个字符的任何文件匹配。</p>
+<p>／tmp/notes?txt 将与／tmp/notes.txt 和 ／tmp/notes_txt都匹配，如果他们存在。</p>
+<h1 id="通配符语法:[]_[!]">通配符语法:[] [!]</h1>
+<p>该通配符与 ? 相似,但允许指定得更确切。要使用该通配符,把您想要匹配的所有字符放在 [] 内。结果的表达式将与 [] 中任一字符相匹配。您也可以用 - 来指定范围,甚至还可以组合范 围。</p>
+<p>[…]:同方括号中的任意一个字符相匹配。这些字符可以用字符范围(比如 1-9)或者离散值或同 时使用两者表示。例如:[a-zBE5-7] 同所有 a 到 z 之间的字符和 B、E、5、6、7 相匹配。</p>
+<p>[!…]:与所有不在方括号中的某个字符匹配。例如 [!a-z] 同某个非小写字母相匹配[5];<br>myfile? 与⽂文件名为 myfile 后跟单个字符的任何⽂文件匹配。</p>
+<p>/tmp/notes?txt 将与 /tmp/notes.txt 和 /tmp/notes_txt 都匹配,如果它们存在。</p>
+<p>￼￼</p>
+<h3 id="例子:">例子:</h3>
+<p>￼myfile[12] 将与 myfile1 和 myfile2 匹配。只要当前⺫⽬目录中⾄至少有⼀一个这样的⽂文件存在,该通 配符就可以进⾏行扩展。</p>
+<p>rm myfile[!9] 将删除除 myfile9 之外的名为 myfile 加⼀一个字符的所有⽂文件。</p>
+<p>￼ls /etc/[0-9]<em> 将列出 /etc 中以数字开头的所有⽂文件。<br>￼ls /tmp/[A-Za-z]</em> 将列出 /tmp 中以⼤大写字⺟母或⼩小写字⺟母开头的所有⽂文件。<br>￼<br>{c1,c2}:同 c1 或者 c2 相匹配。其中 c1 和 c2 也是通配符。因此,您可以使用 {[0-9]*,[acr]}。</p>
+<h1 id="正则表达式">正则表达式</h1>
+<h4 id="选择">选择</h4>
+<p>| 竖直分隔符代表选择。例如“gray|grey”可以匹配grey或gray。</p>
+<h4 id="数量限定">数量限定</h4>
+<ul>
+<li>加号代表前面的字符必须至少出现一次。(1次、或多次)。例如,“goo+gle”可以匹 配google、gooogle、goooogle等</li>
+</ul>
+<p>? 问号代表前面的字符最多只可以出现一次。(0次、或1次)。例如,“colou?r”可以匹 配color或者colour</p>
+<ul>
+<li>星号代表前面的字符可以不出现,也可以出现一次或者多次。(0次、或1次、或多 次)。例如,“0*42”可以匹配42、042、0042、00042等。<h4 id="匹配">匹配</h4>
+</li>
+</ul>
+<p>圆括号可以用来定义操作符的范围和优先度。例如,“gr(a|e)y”等价<br>于“gray|grey”,“(grand)?father”匹配father和grandfather。</p>
+<h1 id="上述这些构造子都可以自由组合,因此,“H(ae?|b)ndel”和“H(a|ae|b)ndel”是相同的。">上述这些构造子都可以自由组合,因此,“H(ae?|b)ndel”和“H(a|ae|b)ndel”是相同的。</h1>
 
       
     </div>
@@ -102,9 +138,9 @@ liangyuan">
 <nav id="article-nav">
   
   
-    <a href="/2014/10/21/test/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2014/10/21/通配符/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">test</div>
+      <div class="article-nav-title">通配符</div>
     </a>
   
 </nav>
@@ -126,7 +162,7 @@ liangyuan">
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">5</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">6</span></li></ul>
     </div>
   </div>
 
@@ -138,7 +174,11 @@ liangyuan">
       <ul>
         
           <li>
-            <a href="/2014/10/21/test2/">test2</a>
+            <a href="/2014/10/21/test2/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/21/通配符/">通配符</a>
           </li>
         
           <li>
@@ -151,10 +191,6 @@ liangyuan">
         
           <li>
             <a href="/2014/10/07/my-new-post/">my new post</a>
-          </li>
-        
-          <li>
-            <a href="/2014/10/07/hello-world/">Hello World</a>
           </li>
         
       </ul>
