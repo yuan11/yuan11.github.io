@@ -63,6 +63,113 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-coacoa" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/10/21/coacoa/" class="article-date">
+  <time datetime="2014-10-22T05:08:59.000Z" itemprop="datePublished">Oct 21 2014</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/10/21/coacoa/">coacoa</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Coacoa内存管理">Coacoa内存管理</h1>
+<h2 id="引用计数的概念">引用计数的概念</h2>
+<h4 id="以办公室开灯关灯举例">以办公室开灯关灯举例</h4>
+<h2 id="内存管理的思考方式">内存管理的思考方式</h2>
+<h3 id="自己_⽣生成_的对象,自己_持有">自己 ⽣生成 的对象,自己 持有</h3>
+<p>￼￼￼￼</p>
+<ul>
+<li>alloc</li>
+<li><p>mutableCopy<br>￼<em> new<br>￼</em> copy<br>￼￼<br>// ⾃自⼰己⽣生成并持有对象<br>id obj = [[NSObject alloc] init];<br>￼￼</p>
+<h3 id="非自己_⽣生成_的对象,自己也能_持有">非自己 ⽣生成 的对象,自己也能 持有</h3>
+<p>￼￼<br>// 取得⾮自⼰生成的对象但⾃己不持有对象</p>
+<p>id obj = [NSMutableArray array];</p>
+</li>
+</ul>
+<p>￼￼<br>// 取得⾮自⼰生成的对象但⾃己持有对象</p>
+<p> id obj = [NSMutableArray array];</p>
+<p>// ⾃自⼰己持有对象 [obj retain];<br>￼￼<br>￼</p>
+<h3 id="不再需要自己_持有_的对象时_释放">不再需要自己 持有 的对象时 释放</h3>
+<p>￼// ⾃⼰生成并持有对象</p>
+<p>id obj = [[NSObject alloc] init];</p>
+<p>￼// 释放对象<br>￼[obj release];</p>
+<p>￼<br>￼￼// ⼀一般会在release之后,将对象指针赋为nil,以避免指针悬空的情况 obj = nil;</p>
+<p>￼// 取得⾮非⾃自⼰己⽣生成的对象但⾃自⼰己持有对象 </p>
+<p>id obj = [NSMutableArray array];</p>
+<p>￼// ⾃自⼰己持有对象</p>
+<p>￼[obj retai</p>
+<p>￼// 释放对象</p>
+<p>￼[obj release];</p>
+<p>￼obj = nil;</p>
+<p>// 对象不可再被访问</p>
+<h3 id="非自己_持有_的对象无法_释放">非自己 持有 的对象无法 释放</h3>
+<p>￼￼<br>￼// ⾃⼰生成并持有对像</p>
+<p>id obj = [[NSObject alloc] init];</p>
+<p>￼// 释放对象</p>
+<p>￼[obj release];</p>
+<p>￼// 一般会在release之后,将对象指针赋为nil,以避免指针悬空的情况</p>
+<p>￼// obj = </p>
+<p>￼// obj = nil;</p>
+<p>// 释放之后再次释放已非⾃己持有的对象,应⽤用程序会崩溃</p>
+<p> [obj release];</p>
+<p>￼<br>￼// 取得⾮⾃⼰⽣成的对象且⾃己不持有该对象</p>
+<p> id obj = [NSMutableArray array];</p>
+<p>// 释放了⾮自⼰持有的对象,会导致应⽤用程序崩溃</p>
+<p>[obj release];<br>￼</p>
+<h1 id="ARC规则">ARC规则</h1>
+<h2 id="所有权修饰符￼">所有权修饰符￼</h2>
+<p>__strong修饰符</p>
+<p>￼__weak 修饰符</p>
+<p>￼__unsafe_unretained修饰符</p>
+<p>__autoreleasing修饰符</p>
+<h4 id="__strong_修饰符">__strong 修饰符</h4>
+<p>__strong修饰符表⽰示对对象的“强引⽤用”。持有强引⽤用的变量在超出其作⽤用域时被废 弃,随着强引⽤用的失效,引⽤用的对象会随之释放。 Demo </p>
+<p>__strong修饰符修饰的变量,不仅只在变量作⽤用域中,在赋值上也能正确地管理其 对象的所有者。 Demo </p>
+<p>_strong修饰符同后⾯面要讲的_weak修饰符和__autoreleasing修饰符⼀一起,可以保 证将附有这些修饰符的⾃自动变量初始化为nil。 Demo￼￼￼￼</p>
+<h4 id="__weak_修饰符">__weak 修饰符</h4>
+<p>“循环引⽤用容易发⽣生内存泄露。所谓内存泄露就是应当废弃的对象在超出其⽣生存周期 后继续存在。 Demo </p>
+<p>__weak修饰符在持有某对象的弱引⽤用时,若该对象被废弃,则此弱引⽤用将⾃自动失 效且处于nil被赋值的状态(空弱引⽤用) Demo</p>
+<h4 id="__unsafe_unretained_修饰符">__unsafe_unretained 修饰符</h4>
+<p>“附有__unsafe_unretained 修饰符的变量不属于编译器的内存管理对象 Demo </p>
+<p>赋值给附有__unsafe_unretained修饰符变量的对象在通过该变量使⽤用时,如果没 有确保其确实存在,那么应⽤用程序就会崩溃 Demo</p>
+<h4 id="__autoreleasing_修饰符">__autoreleasing 修饰符</h4>
+<p>在使⽤用ARC时,不能使⽤用autorelease⽅方法,也不能使⽤用NSAutoreleasePool类 指定”@autoreleasepool块”来替代”NSAutoreleasePool”类对象⽣生成、持有以及废弃 这⼀一范围 </p>
+<p>另外,要通过将对象赋值给附加了__autoreleasing修饰符的变量来替代调⽤用 autorelease⽅方法 Demo</p>
+<h4 id="显式的附加autoreleasing修饰符同显式地附加strong修饰符一样罕见,原因如下:">显式的附加autoreleasing修饰符同显式地附加strong修饰符一样罕见,原因如下:</h4>
+<h5 id="(_考虑两种使⽤用autoreleasepool的场景)">( 考虑两种使⽤用autoreleasepool的场景)</h5>
+<h5 id="非自己生成并持有的对象:">非自己生成并持有的对象:</h5>
+<p>编译器会检查⽅方法名是否以alloc/new/copy/mytableCopy开始,如果不是就说明是⾮非⾃自⼰己⽣生成并持 有的对象,编译器会⾃自动将返回的对象注册到autoreleasepool中</p>
+<h4 id="demo">demo</h4>
+<h5 id="自己生成并持有的对象,在函数中返回时">自己生成并持有的对象,在函数中返回时</h5>
+<p>由于return使得对象变量超出其作⽤用域,所以强引⽤用对应的⾃自⼰己⽣生成并持有的对象会被⾃自动释放,但该 对象如果作为函数的返回值,编译器会⾃自动将其注册到autoreleasepool中</p>
+<h4 id="demo-1">demo</h4>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2014/10/21/coacoa/" data-id="77iuyqlcf8e2gpyx" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Xcode" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2014/10/21/Xcode/" class="article-date">
@@ -425,7 +532,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">8</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">9</span></li></ul>
     </div>
   </div>
 
@@ -435,6 +542,10 @@
     <h3 class="widget-title">Recents</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2014/10/21/coacoa/">coacoa</a>
+          </li>
         
           <li>
             <a href="/2014/10/21/Xcode/">Xcode</a>
@@ -450,10 +561,6 @@
         
           <li>
             <a href="/2014/10/21/通配符/">通配符</a>
-          </li>
-        
-          <li>
-            <a href="/2014/10/21/test/">test</a>
           </li>
         
       </ul>
