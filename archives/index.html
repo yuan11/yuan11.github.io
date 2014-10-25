@@ -63,6 +63,86 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-git" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/10/24/git/" class="article-date">
+  <time datetime="2014-10-24T21:47:26.000Z" itemprop="datePublished">Oct 24 2014</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/10/24/git/">git</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="基本操作">基本操作</h1>
+<h3 id="初始化仓库">初始化仓库</h3>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">—git <span class="keyword">init</span></div></pre></td></tr></table></figure>
+
+<h3 id="配置作者信息">配置作者信息</h3>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">-<span class="ruby">git config --global user.email<span class="string">"youremail@corp.com"</span></span></div><div class="line">-<span class="ruby">git config --global user.name <span class="string">"yourname"</span></span></div></pre></td></tr></table></figure>
+
+<h3 id="添加文件到暂存区">添加文件到暂存区</h3>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">-<span class="ruby"> git add \&lt;filename\&gt;</span></div><div class="line">-<span class="ruby"> git add * (添加所有文件到暂存区)</span></div></pre></td></tr></table></figure>
+
+<h3 id="移除文件">移除文件</h3>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">-git rm <span class="command">\&lt;</span>filename<span class="command">\&gt;</span></div></pre></td></tr></table></figure>
+
+<h3 id="重命名一个文件">重命名一个文件</h3>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">-<span class="ruby"><span class="input"><span class="prompt">git mv \&lt;oldfilename\&gt;</span> \&lt;newfilename\&gt;</span></span></div></pre></td></tr></table></figure>
+
+<h3 id="提交暂存区">提交暂存区</h3>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="smartquote">`'git commit只会提交暂存区（staged）里的文件'</span>`</div><div class="line">－git commit -m "messge"</div></pre></td></tr></table></figure>
+
+<h3 id="查看工作目录的状态">查看工作目录的状态</h3>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="deletion">-git status</span></div></pre></td></tr></table></figure>
+
+<h3 id="查看提交历史记录">查看提交历史记录</h3>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">-git <span class="built_in">log</span></div></pre></td></tr></table></figure>
+
+<h3 id="查看文件改变">查看文件改变</h3>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="deletion">-git diff</span></div></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="撤销操作">撤销操作</h2>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">1.撤销加入暂存区的操作</div><div class="line"></div><div class="line">－git checkout HEAD <span class="command">\&lt;</span>file<span class="command">\&gt;</span></div><div class="line"></div><div class="line">2.撤销修改的操作</div><div class="line"></div><div class="line">-git checkout --<span class="command">\&lt;</span>file<span class="command">\&gt;</span></div><div class="line"></div><div class="line">3.将本地的修改放进回收站</div><div class="line"></div><div class="line">－git stash</div><div class="line"></div><div class="line">4.从回收站中修复本地的修改</div><div class="line"></div><div class="line"> -git stsah apply</div></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="Tag操作">Tag操作</h2>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="number">1</span>.查看<span class="keyword">tag</span></div><div class="line"></div><div class="line">-git <span class="keyword">tag</span></div><div class="line"></div><div class="line"><span class="number">2</span>.创建<span class="keyword">tag</span></div><div class="line"></div><div class="line">-git <span class="keyword">tag</span> -<span class="keyword">a</span> v1.<span class="number">0</span> -<span class="keyword">m</span> <span class="string">"my version 1.0"</span></div><div class="line"></div><div class="line"><span class="number">3</span>.显示<span class="keyword">tag</span>信息</div><div class="line"></div><div class="line">-git show v1.<span class="number">0</span></div><div class="line"></div><div class="line"><span class="number">4</span>.对之前的提交打<span class="keyword">tag</span></div><div class="line"></div><div class="line">-git <span class="keyword">tag</span> -<span class="keyword">a</span> v0.<span class="number">1</span> -<span class="keyword">m</span> <span class="string">"version 0.1"</span></div></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="分支操作">分支操作</h2>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">1.查看分支</div><div class="line"></div><div class="line">－git branch</div><div class="line"></div><div class="line">2.创建分支</div><div class="line"></div><div class="line">-git branch <span class="command">\&lt;</span>branchname<span class="command">\&gt;</span></div><div class="line"></div><div class="line">3.删除分支</div><div class="line"></div><div class="line">-gie branch -d <span class="command">\&lt;</span>branchname<span class="command">\&gt;</span></div><div class="line"></div><div class="line">4.切换分支</div><div class="line"></div><div class="line">-git checkout <span class="command">\&lt;</span>branchname<span class="command">\&gt;</span></div><div class="line"></div><div class="line">5.合并分支</div><div class="line"></div><div class="line">-git merge <span class="command">\&lt;</span>branchname<span class="command">\&gt;</span></div><div class="line"></div><div class="line">6.rebase操作</div><div class="line"></div><div class="line">-git rebase <span class="command">\&lt;</span>basebranch<span class="command">\&gt;</span><span class="command">\&lt;</span>newebranch<span class="command">\&gt;</span></div></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="远端仓库操作">远端仓库操作</h2>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">1.克隆一个远端仓库</div><div class="line"></div><div class="line">-<span class="ruby">git clong *<span class="constant">URL</span>*</span></div><div class="line"></div><div class="line">2.添加远端仓库</div><div class="line"></div><div class="line">-<span class="ruby">git remote add\&lt;name\&gt;\&lt;<span class="constant">URL</span>\&gt;</span></div><div class="line"></div><div class="line">3.更新远端仓库的分支何数据</div><div class="line"></div><div class="line">-<span class="ruby">git fetch \&lt;name\&gt;</span></div><div class="line"></div><div class="line">4.获取并合并远端仓库的分支到当前的分支</div><div class="line"></div><div class="line">-<span class="ruby"><span class="input"><span class="prompt">git pull \&lt;reponame\&gt;</span> \&lt;branchname\&gt;</span></span></div><div class="line"></div><div class="line">-<span class="ruby"><span class="symbol">eg:</span> `<span class="string">'git pull origin mseter'</span>`</span></div><div class="line"></div><div class="line">5.上传本读分支和数据到远端仓库</div><div class="line"></div><div class="line">-<span class="ruby"><span class="input"><span class="prompt">git push \&lt;reponame\&gt;</span> \&lt;branchname\&gt;</span></span></div><div class="line"></div><div class="line">-<span class="ruby">eg <span class="symbol">:`git</span> push origin master`</span></div><div class="line"></div><div class="line">6.跟踪远端仓库上的分支</div><div class="line"></div><div class="line">-<span class="ruby">git checkout --track origin/testbranch</span></div><div class="line"></div><div class="line">-<span class="ruby">git chekout -b test origin/testbranch</span></div></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2014/10/24/git/" data-id="pgrh40jh4twejz5d" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-快捷键" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2014/10/23/快捷键/" class="article-date">
@@ -509,60 +589,10 @@
 
 
   
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/10/07/hello-world/" class="article-date">
-  <time datetime="2014-10-07T23:20:05.000Z" itemprop="datePublished">Oct 7 2014</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/07/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">trobuleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick_Start">Quick Start</h2>
-<h3 id="Create_a_new_post">Create a new post</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server">Run server</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files">Generate static files</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites">Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-
-<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/10/07/hello-world/" data-id="2vepo9o5wf33swvs" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/">Next &raquo;</a>
+    </nav>
   
 </section>
         
@@ -578,7 +608,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">10</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">11</span></li></ul>
     </div>
   </div>
 
@@ -588,6 +618,10 @@
     <h3 class="widget-title">Recents</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2014/10/24/git/">git</a>
+          </li>
         
           <li>
             <a href="/2014/10/23/快捷键/">(no title)</a>
@@ -603,10 +637,6 @@
         
           <li>
             <a href="/2014/10/21/www/">www</a>
-          </li>
-        
-          <li>
-            <a href="/2014/10/21/test2/">(no title)</a>
           </li>
         
       </ul>
