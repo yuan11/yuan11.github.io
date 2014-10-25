@@ -3,17 +3,35 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Hexo</title>
+  <title>NSString常用方法 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/">
+  <meta name="description" content="1//创建字符串对象数组
+ NSArray *array = [str componentsSeparatedByString:@”@”];//就是以@为标示 输出看看啦
+ int count=[array count];
+ int i;
+ for(i=0;i&lt;count;i=i+4)
+ {
+  printf(“%i:  %s\n”,i,[[array objectAtIndex:i] UT">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NSString常用方法">
+<meta property="og:url" content="http://yoursite.com/2014/10/24/NSString常用方法/">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description">
+<meta property="og:description" content="1//创建字符串对象数组
+ NSArray *array = [str componentsSeparatedByString:@”@”];//就是以@为标示 输出看看啦
+ int count=[array count];
+ int i;
+ for(i=0;i&lt;count;i=i+4)
+ {
+  printf(“%i:  %s\n”,i,[[array objectAtIndex:i] UT">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
-<meta name="twitter:description">
+<meta name="twitter:title" content="NSString常用方法">
+<meta name="twitter:description" content="1//创建字符串对象数组
+ NSArray *array = [str componentsSeparatedByString:@”@”];//就是以@为标示 输出看看啦
+ int count=[array count];
+ int i;
+ for(i=0;i&lt;count;i=i+4)
+ {
+  printf(“%i:  %s\n”,i,[[array objectAtIndex:i] UT">
 
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -61,9 +79,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-NSString常用方法" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-NSString常用方法" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2014/10/24/NSString常用方法/" class="article-date">
   <time datetime="2014-10-25T03:43:32.000Z" itemprop="datePublished">Oct 24 2014</time>
@@ -76,8 +92,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/24/NSString常用方法/">NSString常用方法</a>
+    <h1 class="article-title" itemprop="name">
+      NSString常用方法
     </h1>
   
 
@@ -634,505 +650,20 @@ filenum = [files objectEnumerator];
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-git" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/10/24/git/" class="article-date">
-  <time datetime="2014-10-24T21:47:26.000Z" itemprop="datePublished">Oct 24 2014</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/24/git/">git</a>
-    </h1>
+    <a href="/2014/10/24/git/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">git</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="基本操作">基本操作</h1>
-<h3 id="初始化仓库">初始化仓库</h3>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">—git <span class="keyword">init</span></div></pre></td></tr></table></figure>
-
-<h3 id="配置作者信息">配置作者信息</h3>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">-<span class="ruby">git config --global user.email<span class="string">"youremail@corp.com"</span></span></div><div class="line">-<span class="ruby">git config --global user.name <span class="string">"yourname"</span></span></div></pre></td></tr></table></figure>
-
-<h3 id="添加文件到暂存区">添加文件到暂存区</h3>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">-<span class="ruby"> git add \&lt;filename\&gt;</span></div><div class="line">-<span class="ruby"> git add * (添加所有文件到暂存区)</span></div></pre></td></tr></table></figure>
-
-<h3 id="移除文件">移除文件</h3>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">-git rm <span class="command">\&lt;</span>filename<span class="command">\&gt;</span></div></pre></td></tr></table></figure>
-
-<h3 id="重命名一个文件">重命名一个文件</h3>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">-<span class="ruby"><span class="input"><span class="prompt">git mv \&lt;oldfilename\&gt;</span> \&lt;newfilename\&gt;</span></span></div></pre></td></tr></table></figure>
-
-<h3 id="提交暂存区">提交暂存区</h3>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="smartquote">`'git commit只会提交暂存区（staged）里的文件'</span>`</div><div class="line">－git commit -m "messge"</div></pre></td></tr></table></figure>
-
-<h3 id="查看工作目录的状态">查看工作目录的状态</h3>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="deletion">-git status</span></div></pre></td></tr></table></figure>
-
-<h3 id="查看提交历史记录">查看提交历史记录</h3>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">-git <span class="built_in">log</span></div></pre></td></tr></table></figure>
-
-<h3 id="查看文件改变">查看文件改变</h3>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="deletion">-git diff</span></div></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="撤销操作">撤销操作</h2>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">1.撤销加入暂存区的操作</div><div class="line"></div><div class="line">－git checkout HEAD <span class="command">\&lt;</span>file<span class="command">\&gt;</span></div><div class="line"></div><div class="line">2.撤销修改的操作</div><div class="line"></div><div class="line">-git checkout --<span class="command">\&lt;</span>file<span class="command">\&gt;</span></div><div class="line"></div><div class="line">3.将本地的修改放进回收站</div><div class="line"></div><div class="line">－git stash</div><div class="line"></div><div class="line">4.从回收站中修复本地的修改</div><div class="line"></div><div class="line"> -git stsah apply</div></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="Tag操作">Tag操作</h2>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="number">1</span>.查看<span class="keyword">tag</span></div><div class="line"></div><div class="line">-git <span class="keyword">tag</span></div><div class="line"></div><div class="line"><span class="number">2</span>.创建<span class="keyword">tag</span></div><div class="line"></div><div class="line">-git <span class="keyword">tag</span> -<span class="keyword">a</span> v1.<span class="number">0</span> -<span class="keyword">m</span> <span class="string">"my version 1.0"</span></div><div class="line"></div><div class="line"><span class="number">3</span>.显示<span class="keyword">tag</span>信息</div><div class="line"></div><div class="line">-git show v1.<span class="number">0</span></div><div class="line"></div><div class="line"><span class="number">4</span>.对之前的提交打<span class="keyword">tag</span></div><div class="line"></div><div class="line">-git <span class="keyword">tag</span> -<span class="keyword">a</span> v0.<span class="number">1</span> -<span class="keyword">m</span> <span class="string">"version 0.1"</span></div></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="分支操作">分支操作</h2>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">1.查看分支</div><div class="line"></div><div class="line">－git branch</div><div class="line"></div><div class="line">2.创建分支</div><div class="line"></div><div class="line">-git branch <span class="command">\&lt;</span>branchname<span class="command">\&gt;</span></div><div class="line"></div><div class="line">3.删除分支</div><div class="line"></div><div class="line">-gie branch -d <span class="command">\&lt;</span>branchname<span class="command">\&gt;</span></div><div class="line"></div><div class="line">4.切换分支</div><div class="line"></div><div class="line">-git checkout <span class="command">\&lt;</span>branchname<span class="command">\&gt;</span></div><div class="line"></div><div class="line">5.合并分支</div><div class="line"></div><div class="line">-git merge <span class="command">\&lt;</span>branchname<span class="command">\&gt;</span></div><div class="line"></div><div class="line">6.rebase操作</div><div class="line"></div><div class="line">-git rebase <span class="command">\&lt;</span>basebranch<span class="command">\&gt;</span><span class="command">\&lt;</span>newebranch<span class="command">\&gt;</span></div></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="远端仓库操作">远端仓库操作</h2>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">1.克隆一个远端仓库</div><div class="line"></div><div class="line">-<span class="ruby">git clong *<span class="constant">URL</span>*</span></div><div class="line"></div><div class="line">2.添加远端仓库</div><div class="line"></div><div class="line">-<span class="ruby">git remote add\&lt;name\&gt;\&lt;<span class="constant">URL</span>\&gt;</span></div><div class="line"></div><div class="line">3.更新远端仓库的分支何数据</div><div class="line"></div><div class="line">-<span class="ruby">git fetch \&lt;name\&gt;</span></div><div class="line"></div><div class="line">4.获取并合并远端仓库的分支到当前的分支</div><div class="line"></div><div class="line">-<span class="ruby"><span class="input"><span class="prompt">git pull \&lt;reponame\&gt;</span> \&lt;branchname\&gt;</span></span></div><div class="line"></div><div class="line">-<span class="ruby"><span class="symbol">eg:</span> `<span class="string">'git pull origin mseter'</span>`</span></div><div class="line"></div><div class="line">5.上传本读分支和数据到远端仓库</div><div class="line"></div><div class="line">-<span class="ruby"><span class="input"><span class="prompt">git push \&lt;reponame\&gt;</span> \&lt;branchname\&gt;</span></span></div><div class="line"></div><div class="line">-<span class="ruby">eg <span class="symbol">:`git</span> push origin master`</span></div><div class="line"></div><div class="line">6.跟踪远端仓库上的分支</div><div class="line"></div><div class="line">-<span class="ruby">git checkout --track origin/testbranch</span></div><div class="line"></div><div class="line">-<span class="ruby">git chekout -b test origin/testbranch</span></div></pre></td></tr></table></figure>
-
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/10/24/git/" data-id="pgrh40jh4twejz5d" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
   
 </article>
 
-
-  
-    <article id="post-快捷键" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/10/23/快捷键/" class="article-date">
-  <time datetime="2014-10-24T02:23:05.000Z" itemprop="datePublished">Oct 23 2014</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="title:_快捷键">title: 快捷键</h1>
-<h2 id="date:_2014-10-23_15:47:01">date: 2014-10-23 15:47:01</h2>
-<h3 id="tags:">tags:</h3>
-<h4 id="cd-上一级路径">cd..上一级路径</h4>
-<h4 id="cd-当前路径">cd.当前路径</h4>
-<h4 id="cd-/-上上级路径">cd../..上上级路径</h4>
-<h4 id="pwd显示当前路径">pwd显示当前路径</h4>
-<h4 id="man_ls">man ls</h4>
-<h4 id="command_d_建立vim编译器分屏">command d 建立vim编译器分屏</h4>
-<h4 id="command_w_删除分屏">command w 删除分屏</h4>
-<h4 id="command_t_新建打开vim">command t 新建打开vim</h4>
-<h4 id="echo_回收">echo 回收</h4>
-<h4 id="control_＋a_前进到句首">control ＋a 前进到句首</h4>
-<h4 id="control_＋e_删除前边">control ＋e 删除前边</h4>
-<h4 id="control_+_d_删除后边">control + d 删除后边</h4>
-<h4 id="control_＋f_向前移动">control ＋f 向前移动</h4>
-<h4 id="control_＋b_向后移动">control ＋b 向后移动</h4>
-<h4 id="control_＋v_向下翻叶">control ＋v 向下翻叶</h4>
-<h4 id="control_+i_清屏">control +i 清屏</h4>
-<h4 id="esc_+v_向上翻页">esc +v 向上翻页</h4>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/10/23/快捷键/" data-id="w83y3znl4jzzg6fd" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-coacoa" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/10/21/coacoa/" class="article-date">
-  <time datetime="2014-10-22T05:08:59.000Z" itemprop="datePublished">Oct 21 2014</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/21/coacoa/">coacoa</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Coacoa内存管理">Coacoa内存管理</h1>
-<h2 id="引用计数的概念">引用计数的概念</h2>
-<h4 id="以办公室开灯关灯举例">以办公室开灯关灯举例</h4>
-<h2 id="内存管理的思考方式">内存管理的思考方式</h2>
-<h3 id="自己_⽣生成_的对象,自己_持有">自己 ⽣生成 的对象,自己 持有</h3>
-<p>￼￼￼￼</p>
-<ul>
-<li>alloc</li>
-<li><p>mutableCopy<br>￼<em> new<br>￼</em> copy<br>￼￼<br>// ⾃自⼰己⽣生成并持有对象<br>id obj = [[NSObject alloc] init];<br>￼￼</p>
-<h3 id="非自己_⽣生成_的对象,自己也能_持有">非自己 ⽣生成 的对象,自己也能 持有</h3>
-<p>￼￼<br>// 取得⾮自⼰生成的对象但⾃己不持有对象</p>
-<p>id obj = [NSMutableArray array];</p>
-</li>
-</ul>
-<p>￼￼<br>// 取得⾮自⼰生成的对象但⾃己持有对象</p>
-<p> id obj = [NSMutableArray array];</p>
-<p>// ⾃自⼰己持有对象 [obj retain];<br>￼￼<br>￼</p>
-<h3 id="不再需要自己_持有_的对象时_释放">不再需要自己 持有 的对象时 释放</h3>
-<p>￼// ⾃⼰生成并持有对象</p>
-<p>id obj = [[NSObject alloc] init];</p>
-<p>￼// 释放对象<br>￼[obj release];</p>
-<p>￼<br>￼￼// ⼀一般会在release之后,将对象指针赋为nil,以避免指针悬空的情况 obj = nil;</p>
-<p>￼// 取得⾮非⾃自⼰己⽣生成的对象但⾃自⼰己持有对象 </p>
-<p>id obj = [NSMutableArray array];</p>
-<p>￼// ⾃自⼰己持有对象</p>
-<p>￼[obj retai</p>
-<p>￼// 释放对象</p>
-<p>￼[obj release];</p>
-<p>￼obj = nil;</p>
-<p>// 对象不可再被访问</p>
-<h3 id="非自己_持有_的对象无法_释放">非自己 持有 的对象无法 释放</h3>
-<p>￼￼<br>￼// ⾃⼰生成并持有对像</p>
-<p>id obj = [[NSObject alloc] init];</p>
-<p>￼// 释放对象</p>
-<p>￼[obj release];</p>
-<p>￼// 一般会在release之后,将对象指针赋为nil,以避免指针悬空的情况</p>
-<p>￼// obj = </p>
-<p>￼// obj = nil;</p>
-<p>// 释放之后再次释放已非⾃己持有的对象,应⽤用程序会崩溃</p>
-<p> [obj release];</p>
-<p>￼<br>￼// 取得⾮⾃⼰⽣成的对象且⾃己不持有该对象</p>
-<p> id obj = [NSMutableArray array];</p>
-<p>// 释放了⾮自⼰持有的对象,会导致应⽤用程序崩溃</p>
-<p>[obj release];<br>￼</p>
-<h1 id="ARC规则">ARC规则</h1>
-<h2 id="所有权修饰符￼">所有权修饰符￼</h2>
-<p>__strong修饰符</p>
-<p>￼__weak 修饰符</p>
-<p>￼__unsafe_unretained修饰符</p>
-<p>__autoreleasing修饰符</p>
-<h4 id="__strong_修饰符">__strong 修饰符</h4>
-<p>__strong修饰符表⽰示对对象的“强引⽤用”。持有强引⽤用的变量在超出其作⽤用域时被废 弃,随着强引⽤用的失效,引⽤用的对象会随之释放。 Demo </p>
-<p>__strong修饰符修饰的变量,不仅只在变量作⽤用域中,在赋值上也能正确地管理其 对象的所有者。 Demo </p>
-<p>_strong修饰符同后⾯面要讲的_weak修饰符和__autoreleasing修饰符⼀一起,可以保 证将附有这些修饰符的⾃自动变量初始化为nil。 Demo￼￼￼￼</p>
-<h4 id="__weak_修饰符">__weak 修饰符</h4>
-<p>“循环引⽤用容易发⽣生内存泄露。所谓内存泄露就是应当废弃的对象在超出其⽣生存周期 后继续存在。 Demo </p>
-<p>__weak修饰符在持有某对象的弱引⽤用时,若该对象被废弃,则此弱引⽤用将⾃自动失 效且处于nil被赋值的状态(空弱引⽤用) Demo</p>
-<h4 id="__unsafe_unretained_修饰符">__unsafe_unretained 修饰符</h4>
-<p>“附有__unsafe_unretained 修饰符的变量不属于编译器的内存管理对象 Demo </p>
-<p>赋值给附有__unsafe_unretained修饰符变量的对象在通过该变量使⽤用时,如果没 有确保其确实存在,那么应⽤用程序就会崩溃 Demo</p>
-<h4 id="__autoreleasing_修饰符">__autoreleasing 修饰符</h4>
-<p>在使⽤用ARC时,不能使⽤用autorelease⽅方法,也不能使⽤用NSAutoreleasePool类 指定”@autoreleasepool块”来替代”NSAutoreleasePool”类对象⽣生成、持有以及废弃 这⼀一范围 </p>
-<p>另外,要通过将对象赋值给附加了__autoreleasing修饰符的变量来替代调⽤用 autorelease⽅方法 Demo</p>
-<h4 id="显式的附加autoreleasing修饰符同显式地附加strong修饰符一样罕见,原因如下:">显式的附加autoreleasing修饰符同显式地附加strong修饰符一样罕见,原因如下:</h4>
-<h5 id="(_考虑两种使⽤用autoreleasepool的场景)">( 考虑两种使⽤用autoreleasepool的场景)</h5>
-<h5 id="非自己生成并持有的对象:">非自己生成并持有的对象:</h5>
-<p>编译器会检查⽅方法名是否以alloc/new/copy/mytableCopy开始,如果不是就说明是⾮非⾃自⼰己⽣生成并持 有的对象,编译器会⾃自动将返回的对象注册到autoreleasepool中</p>
-<h4 id="demo">demo</h4>
-<h5 id="自己生成并持有的对象,在函数中返回时">自己生成并持有的对象,在函数中返回时</h5>
-<p>由于return使得对象变量超出其作⽤用域,所以强引⽤用对应的⾃自⼰己⽣生成并持有的对象会被⾃自动释放,但该 对象如果作为函数的返回值,编译器会⾃自动将其注册到autoreleasepool中</p>
-<h4 id="demo-1">demo</h4>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/10/21/coacoa/" data-id="77iuyqlcf8e2gpyx" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Xcode" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/10/21/Xcode/" class="article-date">
-  <time datetime="2014-10-21T20:44:55.000Z" itemprop="datePublished">Oct 21 2014</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/21/Xcode/">Xcode</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Xcode快捷键盘_移动和选择操作">Xcode快捷键盘 移动和选择操作</h1>
-<h4 id="Ctrl_+_a_移动光标到行首">Ctrl + a 移动光标到行首</h4>
-<h4 id="Ctrl_+_e_移动光标到行尾">Ctrl + e 移动光标到行尾</h4>
-<h4 id="Ctrl_+_f_向前移动光标">Ctrl + f 向前移动光标</h4>
-<h4 id="Ctrl_+_b_向后移动光标">Ctrl + b 向后移动光标</h4>
-<h4 id="Ctrl_+_Option_+_f_向前移动一个单词">Ctrl + Option + f 向前移动一个单词</h4>
-<h4 id="Ctrl_+_Option_+_b_向后移动一个单词">Ctrl + Option + b 向后移动一个单词</h4>
-<h5 id="Ctrl_+_n_向下移动光标">Ctrl + n 向下移动光标</h5>
-<h4 id="Ctrl_+_p_向上移动光标">Ctrl + p 向上移动光标</h4>
-<h4 id="Ctrl_+_SHIFT_+_f_向前选择">Ctrl + SHIFT + f 向前选择</h4>
-<h4 id="Ctrl_+_SHIFT_+_b_向后选择">Ctrl + SHIFT + b 向后选择</h4>
-<h4 id="Ctrl_+_SHIFT_+_n_向下选择">Ctrl + SHIFT + n 向下选择</h4>
-<h4 id="Ctrl_+_SHIFT_+_p_向上选择">Ctrl + SHIFT + p 向上选择</h4>
-<h1 id="删除操作">删除操作</h1>
-<h3 id="Ctrl_+_h_删除光标前面的字符">Ctrl + h 删除光标前面的字符</h3>
-<h3 id="Ctrl_+_d_删除光标后面的字符">Ctrl + d 删除光标后面的字符</h3>
-<h3 id="Ctrl_+_k_删除当前光标到行尾的所有内容">Ctrl + k 删除当前光标到行尾的所有内容</h3>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/10/21/Xcode/" data-id="5fsyxf3str6k2tvd" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-www" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/10/21/www/" class="article-date">
-  <time datetime="2014-10-21T20:35:12.000Z" itemprop="datePublished">Oct 21 2014</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/21/www/">www</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/10/21/www/" data-id="nr91dlgd6ekzj6fu" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-test2" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/10/21/test2/" class="article-date">
-  <time datetime="2014-10-21T20:26:09.000Z" itemprop="datePublished">Oct 21 2014</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>title: test2<br>date: 2014-10-21 12:47:39<br>tags:<br>-</p>
-<h1 id="通配符">通配符</h1>
-<p>“通配符是系统级别的 ⽽而正则表达式需要相关⼯工具和语⾔言的⽀支持: egrep, awk, vi, perl。</p>
-<p>当您键入 ls .txt 命令并按 Enter 后,寻找哪些文件同 .txt 模式相匹配的任务不是由 ls 命令,而 是由 shell</p>
-<p> 自己完成。这需要对命令行是如何被 shell 解析的作进一步解释。当您键入:</p>
-<h1 id="通配符语法:*">通配符语法:*</h1>
-<h3 id="*_将与零个或多个字符匹配。这就是说“什么都可以”。例子:">* 将与零个或多个字符匹配。这就是说“什么都可以”。例子:</h3>
-<p>/etc/g* 与 /etc 中以 g 开头的所有⽂文件匹配。</p>
-<p>/tmp/my*.txt 与 /tmp 中以 my 开头,并且以 .txt 结尾的所有⽂文件匹配。</p>
-<p>￼￼<br>$ ls *.txt<br>      readme.txt  recipes.txt</p>
-<p>￼￼<br>该命令首先被分割成一系列单词(本例中的 ls 和 .txt)。当 shell 在某个单词中发现了 ,它会将 整个单词当作通配模式解析,并用所有相匹配的文件替换它。因此,该命令在执行前就变为 ls readme.txt recipe.txt,而这将得到期望的结果。其余通配符有:</p>
-<h1 id="通配符语法:?">通配符语法:?</h1>
-<h2 id="?_与任何单个字符匹配。例子:">? 与任何单个字符匹配。例子:</h2>
-<p>myfile? 与文件名为mafile 后跟单个字符的任何文件匹配。</p>
-<p>／tmp/notes?txt 将与／tmp/notes.txt 和 ／tmp/notes_txt都匹配，如果他们存在。</p>
-<h1 id="通配符语法:[]_[!]">通配符语法:[] [!]</h1>
-<p>该通配符与 ? 相似,但允许指定得更确切。要使用该通配符,把您想要匹配的所有字符放在 [] 内。结果的表达式将与 [] 中任一字符相匹配。您也可以用 - 来指定范围,甚至还可以组合范 围。</p>
-<p>[…]:同方括号中的任意一个字符相匹配。这些字符可以用字符范围(比如 1-9)或者离散值或同 时使用两者表示。例如:[a-zBE5-7] 同所有 a 到 z 之间的字符和 B、E、5、6、7 相匹配。</p>
-<p>[!…]:与所有不在方括号中的某个字符匹配。例如 [!a-z] 同某个非小写字母相匹配[5];<br>myfile? 与⽂文件名为 myfile 后跟单个字符的任何⽂文件匹配。</p>
-<p>/tmp/notes?txt 将与 /tmp/notes.txt 和 /tmp/notes_txt 都匹配,如果它们存在。</p>
-<p>￼￼</p>
-<h3 id="例子:">例子:</h3>
-<p>￼myfile[12] 将与 myfile1 和 myfile2 匹配。只要当前⺫⽬目录中⾄至少有⼀一个这样的⽂文件存在,该通 配符就可以进⾏行扩展。</p>
-<p>rm myfile[!9] 将删除除 myfile9 之外的名为 myfile 加⼀一个字符的所有⽂文件。</p>
-<p>￼ls /etc/[0-9]<em> 将列出 /etc 中以数字开头的所有⽂文件。<br>￼ls /tmp/[A-Za-z]</em> 将列出 /tmp 中以⼤大写字⺟母或⼩小写字⺟母开头的所有⽂文件。<br>￼<br>{c1,c2}:同 c1 或者 c2 相匹配。其中 c1 和 c2 也是通配符。因此,您可以使用 {[0-9]*,[acr]}。</p>
-<h1 id="正则表达式">正则表达式</h1>
-<h4 id="选择">选择</h4>
-<p>| 竖直分隔符代表选择。例如“gray|grey”可以匹配grey或gray。</p>
-<h4 id="数量限定">数量限定</h4>
-<ul>
-<li>加号代表前面的字符必须至少出现一次。(1次、或多次)。例如,“goo+gle”可以匹 配google、gooogle、goooogle等</li>
-</ul>
-<p>? 问号代表前面的字符最多只可以出现一次。(0次、或1次)。例如,“colou?r”可以匹 配color或者colour</p>
-<ul>
-<li>星号代表前面的字符可以不出现,也可以出现一次或者多次。(0次、或1次、或多 次)。例如,“0*42”可以匹配42、042、0042、00042等。<h4 id="匹配">匹配</h4>
-</li>
-</ul>
-<p>圆括号可以用来定义操作符的范围和优先度。例如,“gr(a|e)y”等价<br>于“gray|grey”,“(grand)?father”匹配father和grandfather。</p>
-<h1 id="上述这些构造子都可以自由组合,因此,“H(ae?|b)ndel”和“H(a|ae|b)ndel”是相同的。">上述这些构造子都可以自由组合,因此,“H(ae?|b)ndel”和“H(a|ae|b)ndel”是相同的。</h1>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/10/21/test2/" data-id="dewiqjoq3jmil202" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-通配符" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/10/21/通配符/" class="article-date">
-  <time datetime="2014-10-21T20:10:12.000Z" itemprop="datePublished">Oct 21 2014</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/21/通配符/">通配符</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/10/21/通配符/" data-id="v2ejouejv7qrwrzn" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-test" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/10/21/test/" class="article-date">
-  <time datetime="2014-10-21T19:29:47.000Z" itemprop="datePublished">Oct 21 2014</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/21/test/">test</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>hello word</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/10/21/test/" data-id="ljoyfgbdt72tuqz7" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-hu" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/10/07/hu/" class="article-date">
-  <time datetime="2014-10-08T04:23:27.000Z" itemprop="datePublished">Oct 7 2014</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>title: hu<br>date: 2014-10-07 21:17:18</p>
-<h2 id="tags:hexo">tags:hexo</h2>
-<h1 id="include">include<stdio.h></stdio.h></h1>
-<h2 id="int_main(void)">int main(void)</h2>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/10/07/hu/" data-id="wheocsnwn6jiu8v8" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-  
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
-    </nav>
-  
 </section>
         
           <aside id="sidebar">

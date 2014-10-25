@@ -63,6 +63,581 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-NSString常用方法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/10/24/NSString常用方法/" class="article-date">
+  <time datetime="2014-10-25T03:43:32.000Z" itemprop="datePublished">Oct 24 2014</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/10/24/NSString常用方法/">NSString常用方法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1//创建字符串对象数组">1//创建字符串对象数组</h1>
+<p> NSArray *array = [str componentsSeparatedByString:@”@”];//就是以@为标示 输出看看啦</p>
+<p> int count=[array count];</p>
+<p> int i;</p>
+<p> for(i=0;i&lt;count;i=i+4)</p>
+<p> {</p>
+<p>  printf(“%i:  %s\n”,i,[[array objectAtIndex:i] UTF8String]);</p>
+<p> }</p>
+<h1 id="2_可变的字符串类">2  可变的字符串类</h1>
+<p> NSMutableString *song=[[NSMutableString alloc] init];</p>
+<p> [song appendString:@”Deaf Leppard”];</p>
+<p> printf(“%s\n”,[song UTF8String]);</p>
+<p> NSRange range=[song rangeOfString:@”Deaf”];//获取字符串”Deaf”字串的范围</p>
+<p> [song replaceCharactersInRange:range withString:@”Def”];//替换 </p>
+<p> printf(“%s\n”,[song UTF8String]);</p>
+<p> [song insertString:@”Animal by “ atIndex:0];</p>
+<p> printf(“%s\n”,[song UTF8String]);</p>
+<p> [song release];</p>
+<h1 id="3字典加数组操作">3字典加数组操作</h1>
+<p> NSArray *keys=[@”one two three” componentsSeparatedByString:@””];</p>
+<p> NSArray *value=[@”two bravo a” componentsSeparatedByString:@””];</p>
+<p> NSDictionary *dic=[[NSDictionary alloc] initWithObjects:value forKeys:keys];</p>
+<p> printf(“%s\n”,[[dic description] UTF8String]);</p>
+<pre><code> <span class="comment">//一、NSString    </span>
+
+
+<span class="comment">//1、创建常量字符串。</span>
+<span class="built_in">NSString</span> *astring = <span class="string">@"This is a String!"</span>;
+
+
+<span class="comment">//2、创建空字符串，给予赋值。</span>
+
+<span class="built_in">NSString</span> *astring = [[<span class="built_in">NSString</span> alloc] init];
+astring = <span class="string">@"This is a String!"</span>;
+[astring release];
+<span class="built_in">NSLog</span>(<span class="string">@"astring:%@"</span>,astring);
+
+
+
+<span class="comment">//3、在以上方法中，提升速度:initWithString方法</span>
+
+<span class="built_in">NSString</span> *astring = [[<span class="built_in">NSString</span> alloc] initWithString:<span class="string">@"This is a String!"</span>];
+<span class="built_in">NSLog</span>(<span class="string">@"astring:%@"</span>,astring);
+[astring release];
+
+
+
+<span class="comment">//4、用标准c创建字符串:initWithCString方法</span>
+
+<span class="keyword">char</span> *Cstring = <span class="string">"This is a String!"</span>;
+<span class="built_in">NSString</span> *astring = [[<span class="built_in">NSString</span> alloc] initWithCString:Cstring];
+<span class="built_in">NSLog</span>(<span class="string">@"astring:%@"</span>,astring);
+[astring release];
+
+
+
+<span class="comment">//5、创建格式化字符串:占位符（由一个%加一个字符组成）</span>
+
+<span class="keyword">int</span> i = <span class="number">1</span>;
+<span class="keyword">int</span> j = <span class="number">2</span>;
+<span class="built_in">NSString</span> *astring = [[<span class="built_in">NSString</span> alloc] initWithString:[<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"%d.This is %i string!"</span>,i,j]];
+<span class="built_in">NSLog</span>(<span class="string">@"astring:%@"</span>,astring);
+[astring release];
+
+
+
+<span class="comment">//6、创建临时字符串</span>
+
+<span class="built_in">NSString</span> *astring;
+astring = [<span class="built_in">NSString</span> stringWithCString:<span class="string">"This is a temporary string"</span>];
+<span class="built_in">NSLog</span>(<span class="string">@"astring:%@"</span>,astring);
+
+
+
+
+
+
+<span class="built_in">NSString</span> *path = <span class="string">@"astring.text"</span>;
+<span class="built_in">NSString</span> *astring = [[<span class="built_in">NSString</span> alloc] initWithContentsOfFile:path];
+<span class="built_in">NSLog</span>(<span class="string">@"astring:%@"</span>,astring);
+[astring release];
+
+
+
+
+
+<span class="built_in">NSString</span> *astring = [[<span class="built_in">NSString</span> alloc] initWithString:<span class="string">@"This is a String!"</span>];
+<span class="built_in">NSLog</span>(<span class="string">@"astring:%@"</span>,astring);
+<span class="built_in">NSString</span> *path = <span class="string">@"astring.text"</span>;    
+[astring writeToFile: path atomically: <span class="literal">YES</span>];
+[astring release];    
+
+
+
+
+
+
+<span class="comment">//用C比较:strcmp函数</span>
+
+<span class="keyword">char</span> string1[] = <span class="string">"string!"</span>;
+<span class="keyword">char</span> string2[] = <span class="string">"string!"</span>;
+<span class="keyword">if</span>(strcmp(string1, string2) = = <span class="number">0</span>)
+{
+    <span class="built_in">NSLog</span>(<span class="string">@"1"</span>);
+}
+
+
+
+<span class="comment">//isEqualToString方法    </span>
+<span class="built_in">NSString</span> *astring01 = <span class="string">@"This is a String!"</span>;
+<span class="built_in">NSString</span> *astring02 = <span class="string">@"This is a String!"</span>;
+<span class="built_in">BOOL</span> result = [astring01 isEqualToString:astring02];
+<span class="built_in">NSLog</span>(<span class="string">@"result:%d"</span>,result);
+
+
+
+
+<span class="comment">//compare方法(comparer返回的三种值)    </span>
+<span class="built_in">NSString</span> *astring01 = <span class="string">@"This is a String!"</span>;
+<span class="built_in">NSString</span> *astring02 = <span class="string">@"This is a String!"</span>;    
+<span class="built_in">BOOL</span> result = [astring01 compare:astring02] = = NSOrderedSame;    
+<span class="built_in">NSLog</span>(<span class="string">@"result:%d"</span>,result);    
+<span class="comment">//NSOrderedSame判断两者内容是否相同</span>
+
+
+
+
+<span class="built_in">NSString</span> *astring01 = <span class="string">@"This is a String!"</span>;
+<span class="built_in">NSString</span> *astring02 = <span class="string">@"this is a String!"</span>;
+<span class="built_in">BOOL</span> result = [astring01 compare:astring02] = = NSOrderedAscending;    
+<span class="built_in">NSLog</span>(<span class="string">@"result:%d"</span>,result);
+<span class="comment">//NSOrderedAscending判断两对象值的大小(按字母顺序进行比较，astring02大于astring01为真)</span>
+
+
+
+<span class="built_in">NSString</span> *astring01 = <span class="string">@"this is a String!"</span>;
+<span class="built_in">NSString</span> *astring02 = <span class="string">@"This is a String!"</span>;
+<span class="built_in">BOOL</span> result = [astring01 compare:astring02] = = NSOrderedDescending;    
+<span class="built_in">NSLog</span>(<span class="string">@"result:%d"</span>,result);     
+<span class="comment">//NSOrderedDescending判断两对象值的大小(按字母顺序进行比较，astring02小于astring01为真)</span>
+
+
+
+<span class="comment">//不考虑大小写比较字符串1</span>
+<span class="built_in">NSString</span> *astring01 = <span class="string">@"this is a String!"</span>;
+<span class="built_in">NSString</span> *astring02 = <span class="string">@"This is a String!"</span>;
+<span class="built_in">BOOL</span> result = [astring01 caseInsensitiveCompare:astring02] = = NSOrderedSame;    
+<span class="built_in">NSLog</span>(<span class="string">@"result:%d"</span>,result);     
+<span class="comment">//NSOrderedDescending判断两对象值的大小(按字母顺序进行比较，astring02小于astring01为真)</span>
+
+
+
+<span class="comment">//不考虑大小写比较字符串2</span>
+<span class="built_in">NSString</span> *astring01 = <span class="string">@"this is a String!"</span>;
+<span class="built_in">NSString</span> *astring02 = <span class="string">@"This is a String!"</span>;
+<span class="built_in">BOOL</span> result = [astring01 compare:astring02
+                        options:NSCaseInsensitiveSearch | NSNumericSearch] = = NSOrderedSame;    
+<span class="built_in">NSLog</span>(<span class="string">@"result:%d"</span>,result);     
+
+<span class="comment">//NSCaseInsensitiveSearch:不区分大小写比较 NSLiteralSearch:进行完全比较，区分大小写 NSNumericSearch:比较字符串的字符个数，而不是字符值。</span>
+
+
+
+
+<span class="built_in">NSString</span> *string1 = <span class="string">@"A String"</span>; 
+<span class="built_in">NSString</span> *string2 = <span class="string">@"String"</span>; 
+<span class="built_in">NSLog</span>(<span class="string">@"string1:%@"</span>,[string1 uppercaseString]);<span class="comment">//大写</span>
+<span class="built_in">NSLog</span>(<span class="string">@"string2:%@"</span>,[string2 lowercaseString]);<span class="comment">//小写</span>
+<span class="built_in">NSLog</span>(<span class="string">@"string2:%@"</span>,[string2 capitalizedString]);<span class="comment">//首字母大小</span>
+
+
+
+
+<span class="built_in">NSString</span> *string1 = <span class="string">@"This is a string"</span>;
+<span class="built_in">NSString</span> *string2 = <span class="string">@"string"</span>;
+<span class="built_in">NSRange</span> range = [string1 rangeOfString:string2];
+<span class="keyword">int</span> location = range<span class="variable">.location</span>;
+<span class="keyword">int</span> leight = range<span class="variable">.length</span>;
+<span class="built_in">NSString</span> *astring = [[<span class="built_in">NSString</span> alloc] initWithString:[<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"Location:%i,Leight:%i"</span>,location,leight]];
+<span class="built_in">NSLog</span>(<span class="string">@"astring:%@"</span>,astring);
+[astring release];
+
+
+
+
+<span class="comment">//-substringToIndex: 从字符串的开头一直截取到指定的位置，但不包括该位置的字符</span>
+<span class="built_in">NSString</span> *string1 = <span class="string">@"This is a string"</span>;
+<span class="built_in">NSString</span> *string2 = [string1 substringToIndex:<span class="number">3</span>];
+<span class="built_in">NSLog</span>(<span class="string">@"string2:%@"</span>,string2);
+
+
+
+
+<span class="comment">//-substringFromIndex: 以指定位置开始（包括指定位置的字符），并包括之后的全部字符</span>
+<span class="built_in">NSString</span> *string1 = <span class="string">@"This is a string"</span>;
+<span class="built_in">NSString</span> *string2 = [string1 substringFromIndex:<span class="number">3</span>];
+<span class="built_in">NSLog</span>(<span class="string">@"string2:%@"</span>,string2);
+
+
+
+
+<span class="comment">//-substringWithRange: //按照所给出的位置，长度，任意地从字符串中截取子串</span>
+<span class="built_in">NSString</span> *string1 = <span class="string">@"This is a string"</span>;
+<span class="built_in">NSString</span> *string2 = [string1 substringWithRange:NSMakeRange(<span class="number">0</span>, <span class="number">4</span>)];
+<span class="built_in">NSLog</span>(<span class="string">@"string2:%@"</span>,string2);
+
+
+<span class="comment">//扩展路径</span>
+
+<span class="built_in">NSString</span> *Path = <span class="string">@"~/NSData.txt"</span>;
+<span class="built_in">NSString</span> *absolutePath = [Path stringByExpandingTildeInPath];
+<span class="built_in">NSLog</span>(<span class="string">@"absolutePath:%@"</span>,absolutePath);
+<span class="built_in">NSLog</span>(<span class="string">@"Path:%@"</span>,[absolutePath stringByAbbreviatingWithTildeInPath]);
+
+
+
+<span class="comment">//文件扩展名</span>
+<span class="built_in">NSString</span> *Path = <span class="string">@"~/NSData.txt"</span>;
+<span class="built_in">NSLog</span>(<span class="string">@"Extension:%@"</span>,[Path pathExtension]);
+
+
+
+
+
+
+
+<span class="comment">//stringWithCapacity:</span>
+<span class="built_in">NSMutableString</span> *String;
+String = [<span class="built_in">NSMutableString</span> stringWithCapacity:<span class="number">40</span>];
+
+
+
+
+<span class="comment">//appendString: and appendFormat:</span>
+
+<span class="built_in">NSMutableString</span> *String1 = [[<span class="built_in">NSMutableString</span> alloc] initWithString:<span class="string">@"This is a NSMutableString"</span>];
+<span class="comment">//[String1 appendString:@", I will be adding some character"];</span>
+[String1 appendFormat:[<span class="built_in">NSString</span> stringWithFormat:<span class="string">@", I will be adding some character"</span>]];
+<span class="built_in">NSLog</span>(<span class="string">@"String1:%@"</span>,String1);
+*/
+
+
+
+
+
+<span class="comment">//-insertString: atIndex:</span>
+<span class="built_in">NSMutableString</span> *String1 = [[<span class="built_in">NSMutableString</span> alloc] initWithString:<span class="string">@"This is a NSMutableString"</span>];
+[String1 insertString:<span class="string">@"Hi! "</span> atIndex:<span class="number">0</span>];
+<span class="built_in">NSLog</span>(<span class="string">@"String1:%@"</span>,String1);
+
+
+
+
+
+<span class="comment">//-setString:</span>
+<span class="built_in">NSMutableString</span> *String1 = [[<span class="built_in">NSMutableString</span> alloc] initWithString:<span class="string">@"This is a NSMutableString"</span>];
+[String1 setString:<span class="string">@"Hello Word!"</span>];
+<span class="built_in">NSLog</span>(<span class="string">@"String1:%@"</span>,String1);
+
+
+
+
+
+<span class="comment">//-setString:</span>
+<span class="built_in">NSMutableString</span> *String1 = [[<span class="built_in">NSMutableString</span> alloc] initWithString:<span class="string">@"This is a NSMutableString"</span>];
+[String1 replaceCharactersInRange:NSMakeRange(<span class="number">0</span>, <span class="number">4</span>) withString:<span class="string">@"That"</span>];
+<span class="built_in">NSLog</span>(<span class="string">@"String1:%@"</span>,String1);
+
+
+
+
+<span class="comment">//01：检查字符串是否以另一个字符串开头- (BOOL) hasPrefix: (NSString *) aString;</span>
+<span class="built_in">NSString</span> *String1 = <span class="string">@"NSStringInformation.txt"</span>;
+[String1 hasPrefix:<span class="string">@"NSString"</span>] = = <span class="number">1</span> ?  <span class="built_in">NSLog</span>(<span class="string">@"YES"</span>) : <span class="built_in">NSLog</span>(<span class="string">@"NO"</span>);
+[String1 hasSuffix:<span class="string">@".txt"</span>] = = <span class="number">1</span> ?  <span class="built_in">NSLog</span>(<span class="string">@"YES"</span>) : <span class="built_in">NSLog</span>(<span class="string">@"NO"</span>);
+
+<span class="comment">//02：查找字符串某处是否包含其它字符串 - (NSRange) rangeOfString: (NSString *) aString，这一点前面在串中搜索子串用到过;</span>
+
+
+
+
+
+
+<span class="built_in">NSArray</span> *array = [[<span class="built_in">NSArray</span> alloc] initWithObjects:
+<span class="string">@"One"</span>,<span class="string">@"Two"</span>,<span class="string">@"Three"</span>,<span class="string">@"Four"</span>,<span class="literal">nil</span>];
+
+<span class="keyword">self</span><span class="variable">.dataArray</span> = array;
+[array release];
+
+<span class="comment">//- (unsigned) Count;数组所包含对象个数；</span>
+<span class="built_in">NSLog</span>(<span class="string">@"self.dataArray cound:%d"</span>,[<span class="keyword">self</span><span class="variable">.dataArray</span> count]);
+
+<span class="comment">//- (id) objectAtIndex: (unsigned int) index;获取指定索引处的对象;</span>
+<span class="built_in">NSLog</span>(<span class="string">@"self.dataArray cound 2:%@"</span>,[<span class="keyword">self</span><span class="variable">.dataArray</span> objectAtIndex:<span class="number">2</span>]);
+
+
+
+
+<span class="comment">//arrayWithArray:</span>
+<span class="built_in">NSArray</span> *array1 = [[<span class="built_in">NSArray</span> alloc] init];
+<span class="built_in">NSMutableArray</span> *MutableArray = [[<span class="built_in">NSMutableArray</span> alloc] init];
+<span class="built_in">NSArray</span> *array = [<span class="built_in">NSArray</span> arrayWithObjects:
+                  <span class="string">@"a"</span>,<span class="string">@"b"</span>,<span class="string">@"c"</span>,<span class="literal">nil</span>];
+<span class="built_in">NSLog</span>(<span class="string">@"array:%@"</span>,array);
+MutableArray = [<span class="built_in">NSMutableArray</span> arrayWithArray:array];
+<span class="built_in">NSLog</span>(<span class="string">@"MutableArray:%@"</span>,MutableArray);
+
+array1 = [<span class="built_in">NSArray</span> arrayWithArray:array];
+<span class="built_in">NSLog</span>(<span class="string">@"array1:%@"</span>,array1);
+
+
+<span class="comment">//Copy</span>
+
+<span class="comment">//id obj;</span>
+<span class="built_in">NSMutableArray</span> *newArray = [[<span class="built_in">NSMutableArray</span> alloc] init];
+<span class="built_in">NSArray</span> *oldArray = [<span class="built_in">NSArray</span> arrayWithObjects:
+                     <span class="string">@"a"</span>,<span class="string">@"b"</span>,<span class="string">@"c"</span>,<span class="string">@"d"</span>,<span class="string">@"e"</span>,<span class="string">@"f"</span>,<span class="string">@"g"</span>,<span class="string">@"h"</span>,<span class="literal">nil</span>];
+
+<span class="built_in">NSLog</span>(<span class="string">@"oldArray:%@"</span>,oldArray);
+<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; [oldArray count]; i++)
+{        
+    obj = [[oldArray objectAtIndex:i] <span class="keyword">copy</span>];
+    [newArray addObject: obj];
+}
+<span class="comment">//</span>
+<span class="built_in">NSLog</span>(<span class="string">@"newArray:%@"</span>, newArray);
+[newArray release];
+
+
+<span class="comment">//快速枚举</span>
+
+<span class="comment">//NSMutableArray *newArray = [[NSMutableArray alloc] init];</span>
+<span class="built_in">NSArray</span> *oldArray = [<span class="built_in">NSArray</span> arrayWithObjects:
+                     <span class="string">@"a"</span>,<span class="string">@"b"</span>,<span class="string">@"c"</span>,<span class="string">@"d"</span>,<span class="string">@"e"</span>,<span class="string">@"f"</span>,<span class="string">@"g"</span>,<span class="string">@"h"</span>,<span class="literal">nil</span>];    
+<span class="built_in">NSLog</span>(<span class="string">@"oldArray:%@"</span>,oldArray);
+
+<span class="keyword">for</span>(<span class="keyword">id</span> obj <span class="keyword">in</span> oldArray)
+{
+    [newArray addObject: obj];
+}
+<span class="comment">//</span>
+<span class="built_in">NSLog</span>(<span class="string">@"newArray:%@"</span>, newArray);
+[newArray release];    
+
+
+<span class="comment">//Deep copy</span>
+
+<span class="built_in">NSMutableArray</span> *newArray = [[<span class="built_in">NSMutableArray</span> alloc] init];
+<span class="built_in">NSArray</span> *oldArray = [<span class="built_in">NSArray</span> arrayWithObjects:
+                     <span class="string">@"a"</span>,<span class="string">@"b"</span>,<span class="string">@"c"</span>,<span class="string">@"d"</span>,<span class="string">@"e"</span>,<span class="string">@"f"</span>,<span class="string">@"g"</span>,<span class="string">@"h"</span>,<span class="literal">nil</span>];    
+<span class="built_in">NSLog</span>(<span class="string">@"oldArray:%@"</span>,oldArray);    
+newArray = (<span class="built_in">NSMutableArray</span>*)CFPropertyListCreateDeepCopy(kCFAllocatorDefault, (CFPropertyListRef)oldArray, kCFPropertyListMutableContainers);
+<span class="built_in">NSLog</span>(<span class="string">@"newArray:%@"</span>, newArray);
+[newArray release];    
+
+
+<span class="comment">//Copy and sort</span>
+
+<span class="built_in">NSMutableArray</span> *newArray = [[<span class="built_in">NSMutableArray</span> alloc] init];
+<span class="built_in">NSArray</span> *oldArray = [<span class="built_in">NSArray</span> arrayWithObjects:
+                     <span class="string">@"b"</span>,<span class="string">@"a"</span>,<span class="string">@"e"</span>,<span class="string">@"d"</span>,<span class="string">@"c"</span>,<span class="string">@"f"</span>,<span class="string">@"h"</span>,<span class="string">@"g"</span>,<span class="literal">nil</span>];    
+<span class="built_in">NSLog</span>(<span class="string">@"oldArray:%@"</span>,oldArray);
+NSEnumerator *enumerator;
+enumerator = [oldArray objectEnumerator];
+<span class="keyword">id</span> obj;
+<span class="keyword">while</span>(obj = [enumerator nextObject])
+{
+    [newArray addObject: obj];
+}
+[newArray sortUsingSelector:<span class="keyword">@selector</span>(compare:)];
+<span class="built_in">NSLog</span>(<span class="string">@"newArray:%@"</span>, newArray);
+[newArray release];
+
+
+
+
+
+<span class="comment">//从字符串分割到数组－ componentsSeparatedByString:</span>
+<span class="built_in">NSString</span> *string = [[<span class="built_in">NSString</span> alloc] initWithString:<span class="string">@"One,Two,Three,Four"</span>];
+<span class="built_in">NSLog</span>(<span class="string">@"string:%@"</span>,string);    
+<span class="built_in">NSArray</span> *array = [string componentsSeparatedByString:<span class="string">@","</span>];
+<span class="built_in">NSLog</span>(<span class="string">@"array:%@"</span>,array);
+[string release];
+
+
+<span class="comment">//从数组合并元素到字符串- componentsJoinedByString:</span>
+<span class="built_in">NSArray</span> *array = [[<span class="built_in">NSArray</span> alloc] initWithObjects:<span class="string">@"One"</span>,<span class="string">@"Two"</span>,<span class="string">@"Three"</span>,<span class="string">@"Four"</span>,<span class="literal">nil</span>];
+<span class="built_in">NSString</span> *string = [array componentsJoinedByString:<span class="string">@","</span>];
+<span class="built_in">NSLog</span>(<span class="string">@"string:%@"</span>,string);
+
+
+
+
+
+<span class="built_in">NSArray</span> *array;
+array = [<span class="built_in">NSMutableArray</span> arrayWithCapacity:<span class="number">20</span>];
+
+
+
+
+<span class="comment">//- (void) addObject: (id) anObject;</span>
+<span class="built_in">NSMutableArray</span> *array = [<span class="built_in">NSMutableArray</span> arrayWithObjects:
+<span class="string">@"One"</span>,<span class="string">@"Two"</span>,<span class="string">@"Three"</span>,<span class="literal">nil</span>];
+[array addObject:<span class="string">@"Four"</span>];
+<span class="built_in">NSLog</span>(<span class="string">@"array:%@"</span>,array);
+
+
+
+
+<span class="comment">//-(void) removeObjectAtIndex: (unsigned) index;    </span>
+<span class="built_in">NSMutableArray</span> *array = [<span class="built_in">NSMutableArray</span> arrayWithObjects:
+<span class="string">@"One"</span>,<span class="string">@"Two"</span>,<span class="string">@"Three"</span>,<span class="literal">nil</span>];
+[array removeObjectAtIndex:<span class="number">1</span>];
+<span class="built_in">NSLog</span>(<span class="string">@"array:%@"</span>,array);
+
+
+
+
+<span class="comment">//- (NSEnumerator *)objectEnumerator;从前向后</span>
+<span class="built_in">NSMutableArray</span> *array = [<span class="built_in">NSMutableArray</span> arrayWithObjects:
+<span class="string">@"One"</span>,<span class="string">@"Two"</span>,<span class="string">@"Three"</span>,<span class="literal">nil</span>];
+NSEnumerator *enumerator;
+enumerator = [array objectEnumerator];
+
+<span class="keyword">id</span> thingie;
+<span class="keyword">while</span> (thingie = [enumerator nextObject]) {
+    <span class="built_in">NSLog</span>(<span class="string">@"thingie:%@"</span>,thingie);
+}
+
+
+<span class="comment">//- (NSEnumerator *)reverseObjectEnumerator;从后向前</span>
+<span class="built_in">NSMutableArray</span> *array = [<span class="built_in">NSMutableArray</span> arrayWithObjects:
+<span class="string">@"One"</span>,<span class="string">@"Two"</span>,<span class="string">@"Three"</span>,<span class="literal">nil</span>];
+NSEnumerator *enumerator;
+enumerator = [array reverseObjectEnumerator];
+
+<span class="keyword">id</span> object;
+<span class="keyword">while</span> (object = [enumerator nextObject]) {
+    <span class="built_in">NSLog</span>(<span class="string">@"object:%@"</span>,object);
+}
+
+
+<span class="comment">//快速枚举</span>
+<span class="built_in">NSMutableArray</span> *array = [<span class="built_in">NSMutableArray</span> arrayWithObjects:
+<span class="string">@"One"</span>,<span class="string">@"Two"</span>,<span class="string">@"Three"</span>,<span class="literal">nil</span>];
+<span class="keyword">for</span>(<span class="built_in">NSString</span> *string <span class="keyword">in</span> array)
+{
+    <span class="built_in">NSLog</span>(<span class="string">@"string:%@"</span>,string);
+}
+
+
+
+
+
+
+<span class="comment">//- (id) initWithObjectsAndKeys;</span>
+
+<span class="built_in">NSDictionary</span> *dictionary = [[<span class="built_in">NSDictionary</span> alloc] initWithObjectsAndKeys:<span class="string">@"One"</span>,<span class="string">@"1"</span>,<span class="string">@"Two"</span>,<span class="string">@"2"</span>,<span class="string">@"Three"</span>,<span class="string">@"3"</span>,<span class="literal">nil</span>];
+<span class="built_in">NSString</span> *string = [dictionary objectForKey:<span class="string">@"One"</span>];
+<span class="built_in">NSLog</span>(<span class="string">@"string:%@"</span>,string);
+<span class="built_in">NSLog</span>(<span class="string">@"dictionary:%@"</span>,dictionary);
+[dictionary release];
+
+
+
+
+
+<span class="comment">//创建</span>
+<span class="built_in">NSMutableDictionary</span> *dictionary = [<span class="built_in">NSMutableDictionary</span> dictionary];
+
+<span class="comment">//添加字典</span>
+[dictionary setObject:<span class="string">@"One"</span> forKey:<span class="string">@"1"</span>];
+[dictionary setObject:<span class="string">@"Two"</span> forKey:<span class="string">@"2"</span>];
+[dictionary setObject:<span class="string">@"Three"</span> forKey:<span class="string">@"3"</span>];
+[dictionary setObject:<span class="string">@"Four"</span> forKey:<span class="string">@"4"</span>];
+<span class="built_in">NSLog</span>(<span class="string">@"dictionary:%@"</span>,dictionary);
+
+<span class="comment">//删除指定的字典</span>
+[dictionary removeObjectForKey:<span class="string">@"3"</span>];
+<span class="built_in">NSLog</span>(<span class="string">@"dictionary:%@"</span>,dictionary);
+
+
+
+
+
+<span class="comment">//将NSRect放入NSArray中</span>
+<span class="built_in">NSMutableArray</span> *array = [[<span class="built_in">NSMutableArray</span> alloc] init];
+NSValue *value;
+<span class="built_in">CGRect</span> rect = CGRectMake(<span class="number">0</span>, <span class="number">0</span>, <span class="number">320</span>, <span class="number">480</span>);    
+value = [NSValue valueWithBytes:&amp;rect objCType:@encode(<span class="built_in">CGRect</span>)];
+[array addObject:value];
+<span class="built_in">NSLog</span>(<span class="string">@"array:%@"</span>,array);
+
+<span class="comment">//从Array中提取</span>
+value = [array objectAtIndex:<span class="number">0</span>];
+[value getValue:&amp;rect];
+<span class="built_in">NSLog</span>(<span class="string">@"value:%@"</span>,value);
+
+
+
+
+<span class="built_in">NSFileManager</span> *fileManager = [<span class="built_in">NSFileManager</span> defaultManager];
+<span class="built_in">NSString</span> *home;
+home = <span class="string">@"../Users/"</span>;
+
+NSDirectoryEnumerator *direnum;
+direnum = [fileManager enumeratorAtPath: home];
+
+<span class="built_in">NSMutableArray</span> *files = [[<span class="built_in">NSMutableArray</span> alloc] init];
+
+<span class="comment">//枚举</span>
+<span class="built_in">NSString</span> *filename;
+<span class="keyword">while</span> (filename = [direnum nextObject]) {
+    <span class="keyword">if</span>([[filename pathExtension] hasSuffix:<span class="string">@"jpg"</span>]){
+        [files addObject:filename];
+    }
+}
+</code></pre><h1 id="快速枚举//for(NSString_*filename_in_direnum)">快速枚举//for(NSString *filename in direnum)</h1>
+<pre><code><span class="comment">//{</span>
+
+<span class="comment">//    if([[filename pathExtension] isEqualToString:@"jpg"])</span>
+{
+<span class="comment">//        [files addObject:filename];</span>
+<span class="comment">//    }</span>
+<span class="comment">//}</span>
+<span class="built_in">NSLog</span>(<span class="string">@"files:%@"</span>,files);
+
+<span class="comment">//枚举</span>
+NSEnumerator *filenum;
+filenum = [files objectEnumerator];
+<span class="keyword">while</span> (filename = [filenum nextObject]) {
+    <span class="built_in">NSLog</span>(<span class="string">@"filename:%@"</span>,filename);
+}
+
+<span class="comment">//快速枚举</span>
+<span class="comment">//for(id object in files)</span>
+<span class="comment">//{</span>
+<span class="comment">//    NSLog(@"object:%@",object);</span>
+<span class="comment">//}</span>
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2014/10/24/NSString常用方法/" data-id="d6dswv6manwvh8qx" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-git" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2014/10/24/git/" class="article-date">
@@ -553,42 +1128,6 @@
 
 
   
-    <article id="post-my-new-post" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/10/07/my-new-post/" class="article-date">
-  <time datetime="2014-10-08T03:59:49.000Z" itemprop="datePublished">Oct 7 2014</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/07/my-new-post/">my new post</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/10/07/my-new-post/" data-id="vpxsngwieiipchbg" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/">Next &raquo;</a>
@@ -608,7 +1147,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">11</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">12</span></li></ul>
     </div>
   </div>
 
@@ -618,6 +1157,10 @@
     <h3 class="widget-title">Recents</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2014/10/24/NSString常用方法/">NSString常用方法</a>
+          </li>
         
           <li>
             <a href="/2014/10/24/git/">git</a>
@@ -633,10 +1176,6 @@
         
           <li>
             <a href="/2014/10/21/Xcode/">Xcode</a>
-          </li>
-        
-          <li>
-            <a href="/2014/10/21/www/">www</a>
           </li>
         
       </ul>
