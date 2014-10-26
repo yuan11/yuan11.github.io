@@ -63,6 +63,82 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-UI简单知识" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/10/25/UI简单知识/" class="article-date">
+  <time datetime="2014-10-26T04:53:00.000Z" itemprop="datePublished">Oct 25 2014</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/10/25/UI简单知识/">UI简单知识</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="应用程序的五种状态">应用程序的五种状态</h2>
+<h3 id="Not_runing_(未运行)">Not runing (未运行)</h3>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">程序没有启动</div></pre></td></tr></table></figure>
+
+<h3 id="Inactive_(未激活)">Inactive (未激活)</h3>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">程序在前台运行，不过没有接收到事件。在没有事件处理的情况下程序通常停留在这个状态</div></pre></td></tr></table></figure>
+
+<h3 id="Active_(激活)">Active (激活)</h3>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">程序在前台运行而且接收到了事件，这也是前台的一个正常的模式</div></pre></td></tr></table></figure>
+
+<h3 id="Backgroud（后台）">Backgroud（后台）</h3>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">程序在后台而且能执行代码，大多数程序进入这个状态会在这个状态上停留一会。时间到之后会进入挂起状态（ Suspended）。有的程序经过特殊的请求后可以长期处于Backgroud状态。</div></pre></td></tr></table></figure>
+
+<h3 id="Suspended_(挂起)">Suspended (挂起)</h3>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">程序在后台不能执行代码，系统会自动把程序变成这个状态而且不会发出通知，当挂起时，程序还是停留在内存中的，当系统内存低时，系统就把挂起的程序清除掉，为前台程序提供更多的内存空间。</div></pre></td></tr></table></figure>
+
+
+
+
+<hr>
+<h2 id="应用程序的生命周期">应用程序的生命周期</h2>
+<h5 id="//_iOS加载app将要结束时并且app程序差不多已准备好运行的时候会调用这个方法。通常我们需要使用这个方法来完成app的初始化和最后设置的一些微调。这个方法调用发生在app的window和UI展现之前。">// iOS加载app将要结束时并且app程序差不多已准备好运行的时候会调用这个方法。通常我们需要使用这个方法来完成app的初始化和最后设置的一些微调。这个方法调用发生在app的window和UI展现之前。</h5>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="pp">- <span class="params">(<span class="variable">BOOL</span>)</span>application:<span class="params">(<span class="variable">UIApplication</span> *)</span>application didFinishLaunchingWithOptions:<span class="params">(<span class="variable">NSDictionary</span> *)</span>launchOptions</span></div></pre></td></tr></table></figure>
+
+<h5 id="//_当应用程序将要入非活动状态执行，在此期间，应用程序不接收消息或事件，比如来电话了、锁屏。通常在这个方法里实现：停止timer和其他周期性的任务、停止任何正在运行的请求、暂停视频的播放、如果是游戏那就暂停它、减少OpenGL_ES的帧率、挂起任何分发的队列和不重要的操作队列（你可以继续处理网络请求或其他时间敏感的后台任务）。">// 当应用程序将要入非活动状态执行，在此期间，应用程序不接收消息或事件，比如来电话了、锁屏。通常在这个方法里实现：停止timer和其他周期性的任务、停止任何正在运行的请求、暂停视频的播放、如果是游戏那就暂停它、减少OpenGL ES的帧率、挂起任何分发的队列和不重要的操作队列（你可以继续处理网络请求或其他时间敏感的后台任务）。</h5>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="pp">- <span class="params">(void)</span>applicationWillResignActive:<span class="params">(<span class="variable">UIApplication</span> *)</span>application</span></div></pre></td></tr></table></figure>
+
+<h5 id="当应用程序入活动状态执行，这个刚好跟上面那个方法相反，需要实现任务重新开始，比如重新开始timer,_继续分发队列，提高OpenGL_ES的帧率。不过游戏要回到暂停状态，不能自动开始。">当应用程序入活动状态执行，这个刚好跟上面那个方法相反，需要实现任务重新开始，比如重新开始timer, 继续分发队列，提高OpenGL ES的帧率。不过游戏要回到暂停状态，不能自动开始。</h5>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="pp">- <span class="params">(void)</span>applicationDidBecomeActive:<span class="params">(<span class="variable">UIApplication</span> *)</span>application</span></div></pre></td></tr></table></figure>
+
+<p>`</p>
+<h5 id="//_当程序被推送到后台的时候调用。所以要设置后台继续运行，则在这个函数里面设置即可。在这个方法里需要实现：保存用户数据或状态信息，所有没写到磁盘的文件或信息，在进入后台时，最后都写到磁盘去，因为程序可能在后台被杀死，释放尽可能释放的内存">// 当程序被推送到后台的时候调用。所以要设置后台继续运行，则在这个函数里面设置即可。在这个方法里需要实现：保存用户数据或状态信息，所有没写到磁盘的文件或信息，在进入后台时，最后都写到磁盘去，因为程序可能在后台被杀死，释放尽可能释放的内存</h5>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="pp">- <span class="params">(void)</span>applicationDidEnterBackground:<span class="params">(<span class="variable">UIApplication</span> *)</span>application</span></div></pre></td></tr></table></figure>
+
+<h5 id="//_当程序从后台将要重新回到前台时候调用，这个刚好跟上面的那个方法相反。">// 当程序从后台将要重新回到前台时候调用，这个刚好跟上面的那个方法相反。</h5>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="pp">- <span class="params">(void)</span>applicationWillEnterForeground:<span class="params">(<span class="variable">UIApplication</span> *)</span>application</span></div></pre></td></tr></table></figure>
+
+<h5 id="//_当程序将要退出是被调用，通常是用来保存数据和一些退出前的清理工作。这个需要要设置UIApplicationExitsOnSuspend的键值。">// 当程序将要退出是被调用，通常是用来保存数据和一些退出前的清理工作。这个需要要设置UIApplicationExitsOnSuspend的键值。</h5>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="pp">- <span class="params">(void)</span>applicationWillTerminate:<span class="params">(<span class="variable">UIApplication</span> *)</span>application</span></div></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2014/10/25/UI简单知识/" data-id="d2hvcgszroh7nwn9" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-NSString常用方法" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2014/10/24/NSString常用方法/" class="article-date">
@@ -1098,36 +1174,6 @@ filenum = [files objectEnumerator];
 
 
   
-    <article id="post-hu" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/10/07/hu/" class="article-date">
-  <time datetime="2014-10-08T04:23:27.000Z" itemprop="datePublished">Oct 7 2014</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>title: hu<br>date: 2014-10-07 21:17:18</p>
-<h2 id="tags:hexo">tags:hexo</h2>
-<h1 id="include">include<stdio.h></stdio.h></h1>
-<h2 id="int_main(void)">int main(void)</h2>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/10/07/hu/" data-id="wheocsnwn6jiu8v8" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/archives/2014/page/2/">2</a><a class="extend next" rel="next" href="/archives/2014/page/2/">Next &raquo;</a>
@@ -1147,7 +1193,7 @@ filenum = [files objectEnumerator];
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">12</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">13</span></li></ul>
     </div>
   </div>
 
@@ -1157,6 +1203,10 @@ filenum = [files objectEnumerator];
     <h3 class="widget-title">Recents</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2014/10/25/UI简单知识/">UI简单知识</a>
+          </li>
         
           <li>
             <a href="/2014/10/24/NSString常用方法/">NSString常用方法</a>
@@ -1172,10 +1222,6 @@ filenum = [files objectEnumerator];
         
           <li>
             <a href="/2014/10/21/coacoa/">coacoa</a>
-          </li>
-        
-          <li>
-            <a href="/2014/10/21/Xcode/">Xcode</a>
           </li>
         
       </ul>
