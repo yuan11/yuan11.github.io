@@ -63,6 +63,57 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-OC面向对象" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/10/26/OC面向对象/" class="article-date">
+  <time datetime="2014-10-27T03:36:14.000Z" itemprop="datePublished">Oct 26 2014</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/10/26/OC面向对象/">OC面向对象</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="在继承的语法里，子类对象如何调用到正确到方法机制">在继承的语法里，子类对象如何调用到正确到方法机制</h2>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">####每一个Objective-<span class="keyword">C</span>对象都有一个隐藏到指针指向类的代码，当向一个对象发送消息当时候，方法调度程序回首先在当前类里寻找相应的方法，如果找到的话，就直接执行代码；如果没有找到，则会去父类里寻找相对应的方法，如果找到就会执行没有找到则会继续延续这样的 的原则，沿着继承向上寻找。直到根类NSObjbect(这个类是Objective-<span class="keyword">C</span>所有类到根类)，如果还找不到程序将会直接崩溃。</div></pre></td></tr></table></figure>
+
+<h2 id="在继承语法里，子类对象如何访问到父类到实际变量？">在继承语法里，子类对象如何访问到父类到实际变量？</h2>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">创建一个新类的时候，其对象首先从自身的超级类继承实际变量，然后会添加自己的实际变量，在这种情况下，每个子类对象的指针指向对象的最顶端，也就是沿继承链所包含的所有对象的最开始位置，这样编译就可以通过地址的偏移来计算就能访问到所有的超类的世界变量。</div></pre></td></tr></table></figure>
+
+<h2 id="重写的概念">重写的概念</h2>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">重写的概念只存在于继承语法中，指的是：父类声明的一个方法，但是这个父类并没有真正意义上去实现这个方法，那么在子类里真正的实现方法的功能，这种形式就叫做对这个方法的重写。  </div><div class="line"></div><div class="line"></div><div class="line">重写方法的目的是为了实现对象变成里的多态。</div></pre></td></tr></table></figure>
+
+<h2 id="如何实现在子类里直接调用父类的方法或者父类的实际变量？">如何实现在子类里直接调用父类的方法或者父类的实际变量？</h2>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">采用<span class="keyword">super</span>关键字，需要特别注意的是，这个关键字不是参数也不是实际变量，他只是编译器提供一个功能，当你使用suoer的时候，编译器自然知道，你现在的目的知识访问父类的一些元素。</div></pre></td></tr></table></figure>
+
+<h2 id="NSLog调用％@的机制是什么？">NSLog调用％@的机制是什么？</h2>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">当使用<span class="tag">NSLog</span>格式化参数是％<span class="at_rule">@<span class="keyword">的时候</span> ，实际上是去调用打印对象的description方法，这个方法返回什么值，打印的结果就是什么值。</span></div></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2014/10/26/OC面向对象/" data-id="h8zwkxcptcyuwpzu" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-UI简单知识" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2014/10/25/UI简单知识/" class="article-date">
@@ -1137,43 +1188,6 @@ filenum = [files objectEnumerator];
 
 
   
-    <article id="post-test" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/10/21/test/" class="article-date">
-  <time datetime="2014-10-21T19:29:47.000Z" itemprop="datePublished">Oct 21 2014</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/21/test/">test</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>hello word</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/10/21/test/" data-id="ljoyfgbdt72tuqz7" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/archives/2014/10/page/2/">2</a><a class="extend next" rel="next" href="/archives/2014/10/page/2/">Next &raquo;</a>
@@ -1193,7 +1207,7 @@ filenum = [files objectEnumerator];
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">13</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">14</span></li></ul>
     </div>
   </div>
 
@@ -1203,6 +1217,10 @@ filenum = [files objectEnumerator];
     <h3 class="widget-title">Recents</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2014/10/26/OC面向对象/">OC面向对象</a>
+          </li>
         
           <li>
             <a href="/2014/10/25/UI简单知识/">UI简单知识</a>
@@ -1218,10 +1236,6 @@ filenum = [files objectEnumerator];
         
           <li>
             <a href="/2014/10/23/快捷键/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2014/10/21/coacoa/">coacoa</a>
           </li>
         
       </ul>
